@@ -1,0 +1,20 @@
+# Use a node.js base image
+FROM node:14
+
+# Set the working directory
+WORKDIR /app/backend
+
+# Copy the backend files
+COPY backend .
+
+# Install dependencies
+RUN npm install
+
+# Build the backend
+RUN npm run build
+
+# Expose the port
+EXPOSE 5000
+
+# Start the backend server
+CMD ["npm", "start"]
